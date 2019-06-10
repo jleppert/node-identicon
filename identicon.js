@@ -129,7 +129,7 @@ function _gen(str, size, callback) {
     var code = (hash.charCodeAt(0) << 24) | (hash.charCodeAt(1) << 16) |
     (hash.charCodeAt(2) << 8) | hash.charCodeAt(3);
 
-    var canvas = new Canvas(size, size);
+    var canvas = Canvas.createCanvas ? Canvas.createCanvas(size, size) : new Canvas(size, size);
     var ctx = canvas.getContext('2d');
 
     render_identicon(ctx, code, size);
